@@ -1,42 +1,23 @@
 
 import java.util.ArrayList;
 
-public class Laboratorio {
+public class Laboratorio extends Aula{
 
-    private String nombre;
-    private ArrayList<Demanda> demandas;
     private ArrayList<String> instrumentos;
 
-    public Laboratorio(String nombre) {
-        this.nombre = nombre;
-        this.demandas = new ArrayList<>();
-        this.instrumentos = new ArrayList<>();
+    public Laboratorio(String nombre, String id) {
+        super(nombre, id);
+        this.instrumentos = new ArrayList<String>();
     }
 
-    public String getNombre() {
-        return nombre;
+    public boolean agregarInstrumento(String instrumento) {
+        return instrumentos.add(instrumento);
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public boolean eliminarInstrumento(String instrumento) {
+        return instrumentos.remove(instrumento);
     }
-
-    public int cantidadDemandas() {
-        return demandas.size();
-    }
-
-    public Demanda obtenerDemanda(int index) {
-        return demandas.get(index);
-    }
-
-    public boolean agregarDemanda(Demanda demanda) {
-        return demandas.add(demanda);
-    }
-
-    public boolean quitarDemanda(Demanda demanda) {
-        return demandas.remove(demanda);
-    }
-
+    
     public int cantidadInstrumentos() {
         return instrumentos.size();
     }
@@ -44,13 +25,5 @@ public class Laboratorio {
     public String obtenerInstrumento(int index) {
         return instrumentos.get(index);
     }
-
-    public boolean agregarInstrumento(String instrumento) {
-        return instrumentos.add(instrumento);
-    }
-
-    public boolean quitarInstrumento(String instrumento) {
-        return instrumentos.remove(instrumento);
-    }
-
+    
 }
