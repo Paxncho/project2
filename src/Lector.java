@@ -1,7 +1,4 @@
 import java.util.Scanner;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.File;
 
 public class Lector
 {
@@ -56,7 +53,7 @@ public class Lector
         return opcion;
     }
     
-    public int leerOpcion(String mensaje,int minimo, int maximo)
+    public int leerOpcion(String mensaje, int minimo, int maximo)
     {
         int opcion = 0;
         boolean continuar = true; 
@@ -64,12 +61,11 @@ public class Lector
         {
             try
             {
-                while(opcion < minimo || opcion > maximo)
+                opcion = Integer.parseInt(leerLinea(mensaje));
+                if(opcion < minimo || opcion > maximo)
                 {
                     System.out.println("No existe esta opcion");
-                    opcion = 0;
                 }
-                opcion = Integer.parseInt(leerLinea(mensaje));
                 if(opcion <= maximo && opcion >= minimo)
                 {
                     continuar = false;
