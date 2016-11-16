@@ -24,11 +24,8 @@ public class Importar {
         {
 	
 	    row = rowIterator.next();
-
 	    Iterator<Cell> cellIterator = row.cellIterator();
-	
 	    Cell celda;
-
 	    while (cellIterator.hasNext())
             {
 
