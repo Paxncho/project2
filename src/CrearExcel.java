@@ -11,6 +11,7 @@ public class CrearExcel{
 
     static public boolean CrearExcel(){
 
+        //Todo lo de aquí abajo prepara el excel a escribir -Pencho
         HSSFWorkbook workbook = new HSSFWorkbook();
         HSSFSheet sheet = workbook.createSheet("Demanda Salas-Laboratorios");
         
@@ -35,6 +36,7 @@ public class CrearExcel{
         }
 
         // Escribimos el archivo
+        // Esto de aquí es lo más importante de saber, todo esto crea el archivo -Pencho
         try {
             FileOutputStream out = new FileOutputStream(archivo);
             workbook.write(out);
