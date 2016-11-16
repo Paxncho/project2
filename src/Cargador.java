@@ -1,23 +1,24 @@
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import Clases.Sistema;
+import java.util.Scanner;
 
 public class Cargador {
     
-    public static void muestraContenido(String archivo) throws FileNotFoundException, IOException {
-        String cadena;
-        FileReader f = new FileReader(archivo);
-        BufferedReader b = new BufferedReader(f);
-        while((cadena = b.readLine())!=null) {
-            System.out.println(cadena);
+    public static Sistema readFile ()
+    {
+        try
+        {
+            Sistema sistema = new Sistema ();
+            Scanner scanner = new Scanner (new file(/*ruta de archivo*/));
+            
+            scanner.close();
+            return sistema;
+       
         }
-        b.close();
+        catch (Exception e)
+        {
+                System.out.println("No se pudo leer el archivo"+e);
+                return new Sistema();
+        }
     }
-
-    /*public static void main(String[] args) throws IOException {
-        muestraContenido("/home/mario/archivo.txt");
-    }*/
-   
 }

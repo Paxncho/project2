@@ -1,4 +1,4 @@
-package Clases;
+
 
 
 import java.util.ArrayList;
@@ -8,11 +8,13 @@ public class Sistema {
     private ArrayList <Laboratorio> laboratorios;
     private ArrayList <Sala> salas; 
     
-    public Sistema(ArrayList<Actividad> actividades, ArrayList<Laboratorio> laboratorios, ArrayList<Sala> salas) {
-        this.actividades = actividades;
-        this.laboratorios = laboratorios;
-        this.salas = salas;
+    public Sistema() {
+        this.actividades = new ArrayList <Actividad>();
+        this.laboratorios = new ArrayList <Laboratorio>();
+        this.salas = new ArrayList <Sala>();
     }
+
+
 
     public boolean agregarActividad (Actividad actividad)
     {
