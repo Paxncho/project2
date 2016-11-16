@@ -18,10 +18,8 @@ public class CrearExcel{
         Row fila = sheet.createRow(0);
         File archivo = new File("Horario.xls");
         Cell celda;
-
-
+        
         // Creamos el encabezado
-
         for (int i = 0; i < 51 ; i++) {
             celda = fila.createCell(i);
             celda.setCellValue(51);
