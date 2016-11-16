@@ -13,7 +13,7 @@ import org.apache.poi.xssf.usermodel.*;
 public class ImportarExportarExcel {
     Workbook wb;
     
-    public String ImportarExportarExcel(File archivo, JTable tablaD){
+    public String ImportarExportarExcel(File archivo, JTable tablaD) throws InvalidFormatException{
         String respuesta="No se pudo realizar la importación.";
         DefaultTableModel modeloT = new DefaultTableModel();
         tablaD.setModel(modeloT);
@@ -57,7 +57,7 @@ public class ImportarExportarExcel {
                 if(indiceFila!=0)modeloT.addRow(listaColumna);
             }
             respuesta="Importación exitosa";
-        } catch (IOException | InvalidFormatException | EncryptedDocumentException e) {
+        } catch (IOException | EncryptedDocumentException e) {
             System.err.println(e.getMessage());
         }
         return respuesta;
