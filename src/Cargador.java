@@ -1,5 +1,4 @@
-
-import Clases.Sistema;
+import java.io.File;
 import java.util.Scanner;
 
 public class Cargador {
@@ -9,7 +8,7 @@ public class Cargador {
         try
         {
             Sistema sistema = new Sistema ();
-            Scanner scanner = new Scanner (new file(/*ruta de archivo*/));
+            Scanner scanner = new Scanner (new File(/*ruta de archivo*/ ""));
             
             scanner.close();
             return sistema;
