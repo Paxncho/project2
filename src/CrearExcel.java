@@ -12,11 +12,10 @@ public class CrearExcel{
     static public boolean CrearExcel(){
 
         //Todo lo de aquí abajo prepara el excel a escribir -Pencho
-        HSSFWorkbook workbook = new HSSFWorkbook();
-        HSSFSheet sheet = workbook.createSheet("Demanda Salas-Laboratorios");
+        HSSFWorkbook workbook = new HSSFWorkbook(); //Creamos el Excel Virtual -Pencho
+        HSSFSheet sheet = workbook.createSheet("Demanda Salas-Laboratorios"); //Le Creamos una hoja -Pencho
         
         Row fila = sheet.createRow(0);
-        File archivo = new File("Horario.xls");
         Cell celda;
         
         // Creamos el encabezado
@@ -36,8 +35,12 @@ public class CrearExcel{
         // Escribimos el archivo
         // Esto de aquí es lo más importante de saber, todo esto crea el archivo -Pencho
         try {
+            //Nombre del archivo excel a crear -Pencho
+            File archivo = new File("Horario.xls");
+            //Asignamos el Excel virtual al archivo real -Pencho
             FileOutputStream out = new FileOutputStream(archivo);
             workbook.write(out);
+            //Cerramos el archivo -Pencho
             out.close();
 
             System.out.println("Archivo creado exitosamente!");
