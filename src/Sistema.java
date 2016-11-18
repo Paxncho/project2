@@ -20,22 +20,12 @@ public class Sistema {
 
     public boolean agregarActividad (Actividad actividad)
     {
-    
-       for (Actividad existente : this.actividades)
-       {
-           if (existente.getId() == actividad.getId () )
-           {
-               return false;
-            }
-        }
-        this.actividades.add(actividad);
-        return true;
-    
+        return this.actividades.add(actividad);    
     }
     
-    public void eliminarActividad(String id){
+    public void eliminarActividad(Actividad actividad){
         
-        this.actividades.remove (id);    
+        this.actividades.remove(actividad);
     }
     
     public int cantidadActividades()
@@ -53,7 +43,7 @@ public class Sistema {
     
        for (Laboratorio existente : this.laboratorios)
        {
-           if (existente.getId() == laboratorio.getId () )
+           if (existente.getId().equals(laboratorio.getId()) )
            {
                return false;
             }
@@ -62,9 +52,9 @@ public class Sistema {
         return true;
     
     }
-    public void eliminarLaboratorio(String id){
+    public void eliminarLaboratorio(Laboratorio laboratorio){
         
-        this.laboratorios.remove (id);
+        this.laboratorios.remove(laboratorio);
     
     }
     
@@ -95,7 +85,7 @@ public class Sistema {
     
     public void eliminarSala(String id){
         
-        this.salas.remove (id);
+        this.salas.remove(id);
     }
     
     public int cantidadSalas()

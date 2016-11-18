@@ -1,35 +1,22 @@
-
 public class Actividad {
 
-    private String id;
-    private String ramo;
+    private Ramo ramo;
     private int bloque;
     private Dia dia;
-    private TipoActividad tipo;
     private Aula aulaAsignada;
 
-    public Actividad(String ramo, int bloque, Dia dia, TipoActividad tipo, String id, Aula aulaAsignada) {
-        this.id = id;
+    public Actividad(Ramo ramo, int bloque, Dia dia, Aula aulaAsignada) {
         this.ramo = ramo;
         this.bloque = bloque;
         this.dia = dia;
-        this.tipo = tipo;
         this.aulaAsignada = aulaAsignada;
     }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
     
-    public String getRamo() {
+    public Ramo getRamo() {
         return ramo;
     }
 
-    public void setRamo(String ramo) {
+    public void setRamo(Ramo ramo) {
         this.ramo = ramo;
     }
 
@@ -47,14 +34,6 @@ public class Actividad {
 
     public void setDia(Dia dia) {
         this.dia = dia;
-    }
-
-    public TipoActividad getTipo() {
-        return tipo;
-    }
-
-    public void setActividad(TipoActividad tipo) {
-        this.tipo = tipo;
     }
 
     public Aula getAulaAsignada() {
