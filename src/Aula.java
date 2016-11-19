@@ -16,7 +16,13 @@ public abstract class Aula{
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
-
     
+    public Horario getHorario (){
+        return horario;
+    }
+    
+    public void setHorario (Horario horario){
+        this.horario = horario;
+    }
+                
 }

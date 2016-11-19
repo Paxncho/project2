@@ -34,22 +34,14 @@ public class Horario {
     
     public Actividad getActividad (Dia dia, int bloques){
         
+
         for (Actividad existente: this.actividades)
         {
             if (existente.getDia()== dia && existente.getBloque() == bloques)
             {
                 return existente;
-            }else{
-                return null;
-                
-                //aqui vivía el print del Luis que nadie quizo
-                //System.out.println("No se ha encontrado ");
-                
             }
         }
-        
-        
-       
-        
+        return null;
     }
 }
