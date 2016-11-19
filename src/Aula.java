@@ -1,11 +1,12 @@
 
 public abstract class Aula{
     private String nombre;
-    private String id;
+    private Horario horario;
 
-    public Aula(String nombre, String id) {
+
+    public Aula(String nombre) {
         this.nombre = nombre;
-        this.id = id;
+        this.horario = new Horario();
     }
 
     public String getNombre() {
@@ -16,12 +17,6 @@ public abstract class Aula{
         this.nombre = nombre;
     }
 
-    public String getId() {
-        return id;
-    }
 
-    public void setId(String id) {
-        this.id = id;
-    }
     
 }

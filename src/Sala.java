@@ -1,8 +1,8 @@
 
 public class Sala extends Aula{
 
-    public Sala(String nombre, String id) {
-        super(nombre, id);
+    public Sala(String nombre) {
+        super(nombre);
     }
 
 }

@@ -68,7 +68,7 @@ public class LectorDeArchivos{
                             case "LM":
                             case "G":
                                 Ramo ramo = new Ramo(nombreRamo, cantidadAlumnos);
-                                Actividad actividad = new Actividad(ramo, i-1, Dia.MARTES, null);
+                                Actividad actividad = new Actividad(ramo, i-11, Dia.MARTES, null);
                                 sistema.agregarActividad(actividad);
                         }
                     //Si leemos entre la 22 y la 32, corresponde al Miercoles
@@ -80,7 +80,7 @@ public class LectorDeArchivos{
                             case "LM":
                             case "G":
                                 Ramo ramo = new Ramo(nombreRamo, cantidadAlumnos);
-                                Actividad actividad = new Actividad(ramo, i-1, Dia.MIERCOLES, null);
+                                Actividad actividad = new Actividad(ramo, i-21, Dia.MIERCOLES, null);
                                 sistema.agregarActividad(actividad);
                         }
                     //Si leemos entre la 32 y la 42, corresponde al Jueves
@@ -92,7 +92,7 @@ public class LectorDeArchivos{
                             case "LM":
                             case "G":
                                 Ramo ramo = new Ramo(nombreRamo, cantidadAlumnos);
-                                Actividad actividad = new Actividad(ramo, i-1, Dia.JUEVES, null);
+                                Actividad actividad = new Actividad(ramo, i-31, Dia.JUEVES, null);
                                 sistema.agregarActividad(actividad);
                         }
                     //Finalmente las últiimas 10 corresponden al dia Viernes
@@ -104,7 +104,7 @@ public class LectorDeArchivos{
                             case "LM":
                             case "G":
                                 Ramo ramo = new Ramo(nombreRamo, cantidadAlumnos);
-                                Actividad actividad = new Actividad(ramo, i-1, Dia.VIERNES, null);
+                                Actividad actividad = new Actividad(ramo, i-41, Dia.VIERNES, null);
                                 sistema.agregarActividad(actividad);
                         }
                     } 

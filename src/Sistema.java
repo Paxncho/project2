@@ -43,7 +43,7 @@ public class Sistema {
     
        for (Laboratorio existente : this.laboratorios)
        {
-           if (existente.getId().equals(laboratorio.getId()) )
+           if (existente.getNombre().equals(laboratorio.getNombre()) )
            {
                return false;
             }
@@ -73,7 +73,7 @@ public class Sistema {
     
        for (Sala existente : this.salas)
        {
-           if (existente.getId() == sala.getId () )
+           if (existente.getNombre().equals(sala.getNombre ()) )
            {
                return false;
             }
