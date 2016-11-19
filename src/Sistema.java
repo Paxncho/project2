@@ -1,8 +1,3 @@
-
-
-
-
-
 import java.util.ArrayList;
 
 public class Sistema {
@@ -15,8 +10,6 @@ public class Sistema {
         this.laboratorios = new ArrayList <Laboratorio>();
         this.salas = new ArrayList <Sala>();
     }
-
-
 
     public boolean agregarActividad (Actividad actividad)
     {
@@ -84,7 +77,6 @@ public class Sistema {
     }
     
     public void eliminarSala(String id){
-        
         this.salas.remove(id);
     }
     

@@ -1,9 +1,7 @@
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.Iterator;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -55,7 +53,7 @@ public class LectorDeArchivos{
                                 //Creo el ramo con su nombre y su cantidad de alumnos
                                 Ramo ramo = new Ramo(nombreRamo, cantidadAlumnos);
                                 //Asocio el ramo a la actividad, como no se le asigna aún una sala se inicializa como null ese parametro
-                                Actividad actividad = new Actividad(ramo, i-1, Dia.LUNES, null);
+                                Actividad actividad = new Actividad(ramo, i-1, Dia.LUNES);
                                 //Con la actividad ya creada, la agrego de vuelta al sistema
                                 sistema.agregarActividad(actividad);
                         }
@@ -68,7 +66,7 @@ public class LectorDeArchivos{
                             case "LM":
                             case "G":
                                 Ramo ramo = new Ramo(nombreRamo, cantidadAlumnos);
-                                Actividad actividad = new Actividad(ramo, i-11, Dia.MARTES, null);
+                                Actividad actividad = new Actividad(ramo, i-11, Dia.MARTES);
                                 sistema.agregarActividad(actividad);
                         }
                     //Si leemos entre la 22 y la 32, corresponde al Miercoles
@@ -80,7 +78,7 @@ public class LectorDeArchivos{
                             case "LM":
                             case "G":
                                 Ramo ramo = new Ramo(nombreRamo, cantidadAlumnos);
-                                Actividad actividad = new Actividad(ramo, i-21, Dia.MIERCOLES, null);
+                                Actividad actividad = new Actividad(ramo, i-21, Dia.MIERCOLES);
                                 sistema.agregarActividad(actividad);
                         }
                     //Si leemos entre la 32 y la 42, corresponde al Jueves
@@ -92,7 +90,7 @@ public class LectorDeArchivos{
                             case "LM":
                             case "G":
                                 Ramo ramo = new Ramo(nombreRamo, cantidadAlumnos);
-                                Actividad actividad = new Actividad(ramo, i-31, Dia.JUEVES, null);
+                                Actividad actividad = new Actividad(ramo, i-31, Dia.JUEVES);
                                 sistema.agregarActividad(actividad);
                         }
                     //Finalmente las últiimas 10 corresponden al dia Viernes
@@ -104,7 +102,7 @@ public class LectorDeArchivos{
                             case "LM":
                             case "G":
                                 Ramo ramo = new Ramo(nombreRamo, cantidadAlumnos);
-                                Actividad actividad = new Actividad(ramo, i-41, Dia.VIERNES, null);
+                                Actividad actividad = new Actividad(ramo, i-41, Dia.VIERNES);
                                 sistema.agregarActividad(actividad);
                         }
                     } 
