@@ -62,6 +62,7 @@ public class Actividad implements Comparable<Actividad>{
                "Tipo de Aula Requerida: " + tipoRequerido + "\n";
     }
 
+    @Override
     public int compareTo(Actividad actividadComparar) {
         if (this.dia.ordinal() < actividadComparar.getDia().ordinal()){
             return 1;
@@ -76,5 +77,12 @@ public class Actividad implements Comparable<Actividad>{
                 return 0;
             }
         }
+    }
+    
+    public String toSave(){
+        return ramo.toSave() + "\n" +
+               dia.toString() + "\n" +
+               bloque + "\n" +
+               tipoRequerido + "\n";
     }
 }

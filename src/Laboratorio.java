@@ -7,7 +7,7 @@ public class Laboratorio extends Aula{
 
     public Laboratorio(String nombre, int capacidadAlumnos) {
         super(nombre, capacidadAlumnos);
-        this.instrumentos = new ArrayList<String>();
+        this.instrumentos = new ArrayList<>();
     }
 
     public boolean agregarInstrumento(String instrumento) {
@@ -24,6 +24,17 @@ public class Laboratorio extends Aula{
 
     public String obtenerInstrumento(int index) {
         return instrumentos.get(index);
+    }
+    
+    @Override
+    public String toSave(){
+        String save = super.toSave();
+        save += this.instrumentos.size() + "\n";
+        for (String instrumento : this.instrumentos){
+            save += instrumento + "\n";
+        }
+        
+        return save;
     }
     
 }

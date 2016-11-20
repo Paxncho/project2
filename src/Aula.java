@@ -35,13 +35,21 @@ public abstract class Aula implements Comparable<Aula>{
         this.capacidadAlumnos = capacidadAlumnos;        
     }
     
+    @Override
     public int compareTo(Aula aula){
         return this.getNombre().compareTo(aula.getNombre());
     }
     
+    @Override
     public String toString(){
         return "Nombre: " + nombre + "\n" +
                "Capacidad de Alumnos: " + capacidadAlumnos + "\n" +
                 horario.toString();
+    }
+    
+    public String toSave(){
+        return nombre + "\n" +
+               capacidadAlumnos + "\n" +
+               horario.toSave();
     }
 }

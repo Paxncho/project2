@@ -3,13 +3,11 @@ public class Main {
 
     private static Lector donLector = new Lector();
     private static Sistema sistema = new Sistema();
+       
    
-
-    
-    
     public static void main(String[] args) {
         int opcion;
-        
+        sistema = LectorDeArchivos.cargarArchivo();
         do{
             Menu.mostrarMenuPrincipal();
             opcion = donLector.leerOpcion("Ingresa tu opcion: ", 0, 4);
@@ -145,6 +143,7 @@ public class Main {
                 case 0:
                     System.out.println("Gracias por usar el programa!!");
                     System.out.println("---FIN---");
+                    Guardar_Semestre();
                     break;
             }
             
@@ -240,7 +239,7 @@ public class Main {
         
         Actividad actividadNueva = sistema.obtenerActividad(nombreActividad, diaActividad, bloqueActividad);
         
-        if (actividadNueva.equals(null))
+        if (actividadNueva == null)
         {
             System.out.println("La Actividad ingresada no existe ");
             return;
@@ -309,7 +308,7 @@ public class Main {
         
         Actividad actividadNueva = sistema.obtenerActividad(nombreActividad, diaActividad, bloqueActividad);
         
-        if (actividadNueva.equals(null))
+        if (actividadNueva == null)
         {
             System.out.println("La Actividad ingresada no existe ");
             return;
@@ -318,7 +317,7 @@ public class Main {
         
         Laboratorio laboratorioNuevo = sistema.obtenerLaboratorio(nombreLaboratorio);
         
-        if (laboratorioNuevo.equals(null))
+        if (laboratorioNuevo == null)
         {
             System.out.println("El laboratorio ingresado no existe ");
             return;
@@ -345,7 +344,7 @@ public class Main {
         
         Actividad actividadNueva = sistema.obtenerActividad(nombreActividad, diaActividad, bloqueActividad);
         
-        if (actividadNueva.equals(null))
+        if (actividadNueva == null)
         {
             System.out.println("La Actividad ingresada no existe ");
             return;
@@ -354,7 +353,7 @@ public class Main {
         
         Sala salaNueva = sistema.obtenerSala(nombreSala);
         
-        if (salaNueva.equals(null))
+        if (salaNueva == null)
         {
             System.out.println("La sala Ingresada no existe ");
             return;
@@ -421,7 +420,7 @@ public class Main {
     
     private static void Listar_Descendente(){
         
-         String listado = sistema.listarDescendente();
+        String listado = sistema.listarDescendente();
         if (listado.equals(""))
         {
             System.out.println("No hay salas o laboratorios para mostrar");
@@ -430,5 +429,8 @@ public class Main {
         }
         
     }
-
+    
+    private static void Guardar_Semestre(){
+        CreadorDeArchivos.crearArchivo(sistema.toSave());
+    }
 }

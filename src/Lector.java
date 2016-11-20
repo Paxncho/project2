@@ -80,7 +80,7 @@ public class Lector
         while (continuar)
         {
             dia = leerLinea(mensaje);
-            dia.toUpperCase();
+            dia = dia.toUpperCase();
             if (dia.equals("LUNES")|| dia.equals ("MARTES")|| dia.equals("MIERCOLES")||dia.equals("JUEVES")||dia.equals("VIERNES"))
             {
                 continuar = false;
@@ -119,7 +119,7 @@ public class Lector
         while (continuar)
         {
             tipo = leerLinea(mensaje);
-            tipo.toUpperCase();
+            tipo = tipo.toUpperCase();
             if (tipo.equals("SALA")||tipo.equals("LABORATORIO"))
             {
                 continuar = false;

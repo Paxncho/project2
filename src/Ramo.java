@@ -22,9 +22,16 @@ public class Ramo {
     public void setCantidadAlumnos(int cantidadAlumnos) {
         this.cantidadAlumnos = cantidadAlumnos;
     }
+    
+    @Override
     public String toString()
     {
         return "Nombre: " + nombre + "\n" +
                "Cantidad de Alumnos: " + cantidadAlumnos + "\n";
+    }
+    
+    public String toSave(){
+        return nombre + "\n" +
+               cantidadAlumnos + "\n";
     }
 }

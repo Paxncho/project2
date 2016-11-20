@@ -46,6 +46,7 @@ public class Horario {
         return null;
     }
     
+    @Override
     public String toString(){
         String string = "";
         Collections.sort(this.actividades);
@@ -54,5 +55,16 @@ public class Horario {
         }
         
         return string;
+    }
+    
+    public String toSave(){
+        String save = "";
+        save += this.actividades.size() + "\n";
+        for (Actividad actividad : this.actividades){
+            save += actividad.getRamo().getNombre() + "\n" + 
+                    actividad.getDia() + "\n" +
+                    actividad.getBloque() + "\n";
+        }
+        return save;
     }
 }

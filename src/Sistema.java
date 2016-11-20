@@ -278,5 +278,23 @@ public class Sistema {
         return listado;
         
     }
- }
+    
+    public String toSave(){
+        String save = "";
+        save += this.actividades.size() + "\n";
+        for (Actividad actividad : this.actividades){
+            save += actividad.toSave();
+        }
+        save += this.salas.size() + "\n";
+        for (Sala sala : this.salas){
+            save += sala.toSave();
+        }
+        save += this.laboratorios.size() + "\n";
+        for (Laboratorio laboratorio : this.laboratorios){
+            save += laboratorio.toSave();
+        }
+        
+        return save;
+    }
+}
  
