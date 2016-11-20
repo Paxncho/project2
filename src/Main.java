@@ -210,7 +210,38 @@ public class Main {
         }
     }
     private static void Asignar_Laboratorio(){
+        String nombreActividad;
+        Dia diaActividad;
+        int bloqueActividad;
+        String nombreLaboratorio;
+        nombreActividad = donLector.leerLinea ("Ingrese nombre de la Actividad: ");
+        diaActividad = donLector.leerDia ("Ingrese dia de la Actividad: ");
+        bloqueActividad = donLector.leerNumeroEntero("Ingrese bloque de la Actividad: ");
         
+        Actividad actividadNueva = sistema.obtenerActividad(nombreActividad, diaActividad, bloqueActividad);
+        
+        if (actividadNueva.equals(null))
+        {
+            System.out.println("La Actividad ingresada no existe ");
+            return;
+        }
+        nombreLaboratorio = donLector.leerLinea("Ingrese el nombre del laboratorio para la actividad: ");
+        
+        Laboratorio laboratorioNuevo = sistema.obtenerLaboratorio(nombreLaboratorio);
+        
+        if (laboratorioNuevo.equals(null))
+        {
+            System.out.println("El laboratorio ingresado no existe ");
+            return;
+        }
+        if (laboratorioNuevo.getHorario().agregarActividad(actividadNueva))
+        {
+            System.out.println("La asignacion fue realizada exitosamente!!");
+        }
+        else
+        {
+            System.out.println("Error: este bloque ya se encontraba ocupado");
+        }        
     }
 
     

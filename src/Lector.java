@@ -75,8 +75,8 @@ public class Lector
     public Dia leerDia (String mensaje)
     {
         boolean continuar = true;
-        String dia;
-        Dia diaActividad;
+        String dia = null;
+        Dia diaActividad = null;
         while (continuar)
         {
             dia = leerLinea(mensaje);

@@ -71,10 +71,18 @@ public class Sistema {
         return this.laboratorios.size();
     }
     
-    public Laboratorio obtenerLaboratorio(int index)
+    public Laboratorio obtenerLaboratorio(String nombre)
     {
-        return this.laboratorios.get(index);
+        for (Laboratorio existente: this.laboratorios)
+        {
+            if (existente.getNombre().equals(nombre))
+            {
+                return existente;
+            }
+        }
+        return null;
     }
+    
     
     public boolean agregarSala (Sala sala)
     {
@@ -110,7 +118,7 @@ public class Sistema {
     
     public Sala obtenerSala(String nombre)
     {
-        for (Sala existente: this.sala)
+        for (Sala existente: this.salas)
         {
             if (existente.getNombre().equals(nombre))
             {
