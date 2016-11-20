@@ -124,6 +124,24 @@ public class Main {
                             break;
                     }
                     break;
+                case 6:
+                    Exportar_Horario();
+                    break;
+                case 7:
+                    Menu.mostrarMenuListados();
+                    opcion = donLector.leerOpcion("Ingrese su opcion: ", 0, 2);
+                    switch(opcion){
+                        case 1:
+                            Listar_Ascendente();
+                            break;
+                        case 2:
+                            Listar_Descendente();
+                            break;
+                        case 0:
+                            opcion = 7;
+                            break;
+                    }
+                    break;
                 case 0:
                     System.out.println("Gracias por usar el programa!!");
                     System.out.println("---FIN---");
@@ -200,6 +218,7 @@ public class Main {
         rutaArchivo = donLector.leerLinea("Ingrese la ruta del archivo Excel que desea Leer");
         LectorDeArchivos.LeerExcel(rutaArchivo, sistema);
     }
+    
     private static void VerListadoDemanda_Aula(){
         String listado = sistema.mostrarDemandasIncompletas();
         if (listado.equals(""))
@@ -230,7 +249,7 @@ public class Main {
         
         Sala salaNueva = sistema.obtenerSala(nombreSala);
         
-        if (salaNueva.equals(null))
+        if (salaNueva == null)
         {
             System.out.println("La sala Ingresada no existe ");
             return;
@@ -255,7 +274,7 @@ public class Main {
         
         Actividad actividadNueva = sistema.obtenerActividad(nombreActividad, diaActividad, bloqueActividad);
         
-        if (actividadNueva.equals(null))
+        if (actividadNueva == null)
         {
             System.out.println("La Actividad ingresada no existe ");
             return;
@@ -264,7 +283,7 @@ public class Main {
         
         Laboratorio laboratorioNuevo = sistema.obtenerLaboratorio(nombreLaboratorio);
         
-        if (laboratorioNuevo.equals(null))
+        if (laboratorioNuevo == null)
         {
             System.out.println("El laboratorio ingresado no existe ");
             return;
@@ -280,9 +299,74 @@ public class Main {
     }
     
     private static void Remover_Laboratorio_Asignado(){
+        String nombreActividad;
+        Dia diaActividad;
+        int bloqueActividad;
+        String nombreLaboratorio;
+        nombreActividad = donLector.leerLinea ("Ingrese nombre de la Actividad: ");
+        diaActividad = donLector.leerDia ("Ingrese dia de la Actividad: ");
+        bloqueActividad = donLector.leerNumeroEntero("Ingrese bloque de la Actividad: ");
+        
+        Actividad actividadNueva = sistema.obtenerActividad(nombreActividad, diaActividad, bloqueActividad);
+        
+        if (actividadNueva.equals(null))
+        {
+            System.out.println("La Actividad ingresada no existe ");
+            return;
+        }
+        nombreLaboratorio = donLector.leerLinea("Ingrese el nombre del laboratorio para la actividad: ");
+        
+        Laboratorio laboratorioNuevo = sistema.obtenerLaboratorio(nombreLaboratorio);
+        
+        if (laboratorioNuevo.equals(null))
+        {
+            System.out.println("El laboratorio ingresado no existe ");
+            return;
+        }
+        if (laboratorioNuevo.getHorario().eliminarBloque(actividadNueva))
+        {
+            System.out.println("La eliminacion fue realizada exitosamente!!");
+        }
+        else
+        {
+            System.out.println("Error: este bloque ya se encontra desocupado");
+        } 
     
     }
+    
     private static void Remover_Sala_Asignada(){
+        String nombreActividad;
+        Dia diaActividad;
+        int bloqueActividad;
+        String nombreSala;
+        nombreActividad = donLector.leerLinea ("Ingrese nombre de la Actividad: ");
+        diaActividad = donLector.leerDia ("Ingrese dia de la Actividad: ");
+        bloqueActividad = donLector.leerNumeroEntero("Ingrese bloque de la Actividad: ");
+        
+        Actividad actividadNueva = sistema.obtenerActividad(nombreActividad, diaActividad, bloqueActividad);
+        
+        if (actividadNueva.equals(null))
+        {
+            System.out.println("La Actividad ingresada no existe ");
+            return;
+        }
+        nombreSala = donLector.leerLinea("Ingrese el nombre de la sala para la actividad: ");
+        
+        Sala salaNueva = sistema.obtenerSala(nombreSala);
+        
+        if (salaNueva.equals(null))
+        {
+            System.out.println("La sala Ingresada no existe ");
+            return;
+        }
+        if (salaNueva.getHorario().eliminarBloque(actividadNueva))
+        {
+            System.out.println("La eliminacion fue realizada exitosamente!!");
+        }
+        else
+        {
+            System.out.println("Error: este bloque ya se encuentra desocupado");
+        }
     
     }
     
@@ -297,15 +381,54 @@ public class Main {
         cantidadAlumnos = donLector.leerNumeroEntero("Ingrese la Cantidad de Alumnos");
         dia = donLector.leerDia("Ingrese el Dia : ");
         bloque = donLector.leerNumeroEntero("Ingrese el Bloque: ");
-        
-        
-        
-        
     }
+    
     private static void Remover_Actividad(){
+        String nombreActividad;
+        Dia diaActividad;
+        int bloqueActividad;
+        nombreActividad = donLector.leerLinea("Ingrese el nombre de la actividad: ");
+        diaActividad = donLector.leerDia("Ingrese el dia de la actividad: ");
+        bloqueActividad = donLector.leerNumeroEntero("Ingrese el bloque de la actividad: ");
+        
+        if (sistema.eliminarActividad(nombreActividad, diaActividad, bloqueActividad))
+        {
+            System.out.println("La Actividad ha sido eliminada exitosamente!!");
+        }
+        else
+        {
+            System.out.println("Error: La Actividad no pudo ser eliminada");
+        }
     
     }
-
     
+    private static void Exportar_Horario(){
+        
+    }
+    
+    private static void Listar_Ascendente(){
+        
+        String listado = sistema.listarAscendente();
+        if (listado.equals(""))
+        {
+            System.out.println("No hay salas o laboratorios para mostrar");
+        }else{
+            System.out.println("" + listado);
+        }
+        
+               
+    }
+    
+    private static void Listar_Descendente(){
+        
+         String listado = sistema.listarDescendente();
+        if (listado.equals(""))
+        {
+            System.out.println("No hay salas o laboratorios para mostrar");
+        }else{
+            System.out.println("" + listado);
+        }
+        
+    }
 
 }

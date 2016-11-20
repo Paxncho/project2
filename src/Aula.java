@@ -1,5 +1,5 @@
 
-public abstract class Aula{
+public abstract class Aula implements Comparable<Aula>{
     private String nombre;
     private Horario horario;
     private int capacidadAlumnos;
@@ -35,4 +35,13 @@ public abstract class Aula{
         this.capacidadAlumnos = capacidadAlumnos;        
     }
     
+    public int compareTo(Aula aula){
+        return this.getNombre().compareTo(aula.getNombre());
+    }
+    
+    public String toString(){
+        return "Nombre: " + nombre + "\n" +
+               "Capacidad de Alumnos: " + capacidadAlumnos + "\n" +
+                horario.toString();
+    }
 }

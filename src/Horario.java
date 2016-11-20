@@ -1,6 +1,6 @@
 
-
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Horario {
        
@@ -28,7 +28,7 @@ public class Horario {
         return (50-(this.actividades.size()));
     }
     
-    public boolean eliminarBloques (Actividad eliminarActividad)
+    public boolean eliminarBloque(Actividad eliminarActividad)
     {
        eliminarActividad.setSalaAsignada(false);
        return this.actividades.remove(eliminarActividad);
@@ -36,7 +36,6 @@ public class Horario {
     
     public Actividad getActividad (Dia dia, int bloques){
         
-
         for (Actividad existente: this.actividades)
         {
             if (existente.getDia()== dia && existente.getBloque() == bloques)
@@ -45,5 +44,15 @@ public class Horario {
             }
         }
         return null;
+    }
+    
+    public String toString(){
+        String string = "";
+        Collections.sort(this.actividades);
+        for (int i=0; i < this.actividades.size(); i++){
+            string += this.actividades.get(i).toString() + "\n";
+        }
+        
+        return string;
     }
 }
