@@ -124,6 +124,24 @@ public class Main {
                             break;
                     }
                     break;
+                case 6:
+                    Exportar_Horario();
+                    break;
+                case 7:
+                    Menu.mostrarMenuListados();
+                    opcion = donLector.leerOpcion("Ingrese su opcion: ", 0, 2);
+                    switch(opcion){
+                        case 1:
+                            Listar_Ascendente();
+                            break;
+                        case 2:
+                            Listar_Descendente();
+                            break;
+                        case 0:
+                            opcion = 7;
+                            break;
+                    }
+                    break;
                 case 0:
                     System.out.println("Gracias por usar el programa!!");
                     System.out.println("---FIN---");
@@ -230,7 +248,7 @@ public class Main {
         
         Sala salaNueva = sistema.obtenerSala(nombreSala);
         
-        if (salaNueva.equals(null))
+        if (salaNueva == null)
         {
             System.out.println("La sala Ingresada no existe ");
             return;
@@ -255,7 +273,7 @@ public class Main {
         
         Actividad actividadNueva = sistema.obtenerActividad(nombreActividad, diaActividad, bloqueActividad);
         
-        if (actividadNueva.equals(null))
+        if (actividadNueva == null)
         {
             System.out.println("La Actividad ingresada no existe ");
             return;
@@ -264,7 +282,7 @@ public class Main {
         
         Laboratorio laboratorioNuevo = sistema.obtenerLaboratorio(nombreLaboratorio);
         
-        if (laboratorioNuevo.equals(null))
+        if (laboratorioNuevo == null)
         {
             System.out.println("El laboratorio ingresado no existe ");
             return;
@@ -282,6 +300,7 @@ public class Main {
     private static void Remover_Laboratorio_Asignado(){
     
     }
+    
     private static void Remover_Sala_Asignada(){
     
     }
@@ -289,10 +308,21 @@ public class Main {
     private static void Ingresar_Actividad(){
     
     }
+    
     private static void Remover_Actividad(){
     
     }
-
     
+    private static void Exportar_Horario(){
+        
+    }
+    
+    private static void Listar_Ascendente(){
+        
+    }
+    
+    private static void Listar_Descendente(){
+        
+    }
 
 }

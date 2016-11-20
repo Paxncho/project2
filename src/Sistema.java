@@ -7,14 +7,14 @@ public class Sistema {
     
     
     public Sistema() {
-        this.actividades = new ArrayList <Actividad>();
-        this.laboratorios = new ArrayList <Laboratorio>();
-        this.salas = new ArrayList <Sala>();
+        this.actividades = new ArrayList <>();
+        this.laboratorios = new ArrayList <>();
+        this.salas = new ArrayList <>();
     }
 
     public boolean agregarActividad (Actividad actividad)
     {
-        return this.actividades.add(actividad);    
+        return this.actividades.add(actividad);
     }
     
     public void eliminarActividad(Actividad actividad)
