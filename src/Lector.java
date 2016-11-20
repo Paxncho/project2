@@ -59,21 +59,14 @@ public class Lector
         boolean continuar = true; 
         while(continuar)
         {
-            try
-            {
-                opcion = Integer.parseInt(leerLinea(mensaje));
-                if(opcion < minimo || opcion > maximo)
-                {
-                    System.out.println("No existe esta opcion");
-                }
-                if(opcion <= maximo && opcion >= minimo)
-                {
-                    continuar = false;
-                }
-            }
-            catch(NumberFormatException e)
+            opcion = leerNumeroEntero(mensaje);
+            if(opcion < minimo || opcion > maximo)
             {
                 System.out.println("No existe esta opcion");
+            }
+            if(opcion <= maximo && opcion >= minimo)
+            {
+                continuar = false;
             }
         }
         return opcion;
