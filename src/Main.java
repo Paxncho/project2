@@ -11,7 +11,7 @@ public class Main {
         
         do{
             Menu.mostrarMenuPrincipal();
-            opcion = donLector.leerOpcion("Ingresa tu opcion: ", 0, 4);
+            opcion = donLector.leerOpcion("Ingresa tu opcion", 0, 8);
 
             switch (opcion)
             {
@@ -413,7 +413,8 @@ public class Main {
     }
     
     private static void Exportar_Horario(){
-        
+        Guardar_Semestre();
+        CreadorDeArchivos.CrearExcel();
     }
     
     private static void Listar_Ascendente(){
