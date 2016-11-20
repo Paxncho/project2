@@ -95,7 +95,7 @@ public class Sistema {
             ArrayList<Sala> salasDisponibles = new ArrayList<>();
             for (Sala existente : this.salas)
             {
-                if (existente.getCapacidadAlumnos() == demanda.getRamo().getCantidadAlumnos())
+                if (existente.getCapacidadAlumnos() == demanda.getRamo().getCantidadAlumnos() && existente.getHorario().getActividad(demanda.getDia(), demanda.getBloque()) != null)
                 {
                     salasDisponibles.add(existente);
                 }
@@ -111,14 +111,19 @@ public class Sistema {
                 }
             }
             
-            return menor.getHorario().agregarActividad(demanda);
+            if (!menor.getNombre().equals("")){
+                return menor.getHorario().agregarActividad(demanda);
+            }
+            else{
+                return false;
+            }
         }
         else
         {
             ArrayList<Laboratorio> laboratoriosDisponibles = new ArrayList<>();
             for (Laboratorio existente : this.laboratorios)
             {
-                if (existente.getCapacidadAlumnos() == demanda.getRamo().getCantidadAlumnos())
+                if (existente.getCapacidadAlumnos() == demanda.getRamo().getCantidadAlumnos() && existente.getHorario().getActividad(demanda.getDia(), demanda.getBloque()) != null)
                 {
                     laboratoriosDisponibles.add(existente);
                 }
@@ -134,7 +139,11 @@ public class Sistema {
                 }
             }
             
-            return menor.getHorario().agregarActividad(demanda);
+            if (!menor.getNombre().equals("")){
+                return menor.getHorario().agregarActividad(demanda);
+            } else {
+                return false;
+            }
         }
     }
  }

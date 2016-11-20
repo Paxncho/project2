@@ -3,6 +3,7 @@ public class Main {
 
     private static Lector donLector = new Lector();
     private static Sistema sistema = new Sistema();
+
     
     public static void main(String[] args) {
         int opcion;
@@ -116,7 +117,16 @@ public class Main {
     }
     
     private static void Remover_Sala(){
-        
+        String nombreSala;
+        nombreSala = donLector.leerLinea("Ingrese el nombre de la sala: ");
+        if (sistema.eliminarSala(nombreSala))
+        {
+            System.out.println("La Sala ha sido eliminada exitosamente!!");
+        }
+        else
+        {
+            System.out.println("Error: La sala no pudo ser eliminada");
+        }
     }
     
     private static void Ingresar_Laboratorio(){
@@ -124,6 +134,17 @@ public class Main {
     }
     
     private static void Remover_Laboratorio(){
+        String nombreLaboratorio;
+        nombreLaboratorio = donLector.leerLinea("Ingrese el nombre de la laboratorio: ");
+        if (sistema.eliminarLaboratorio(nombreLaboratorio))
+        {
+            System.out.println("El laboratorio ha sido eliminado exitosamente!!");
+        }
+        else
+        {
+            System.out.println("Error: El laboratorio no pudo ser eliminado");
+        }
+    
         
     }
     private static void CargarDemanda_Aula (){
