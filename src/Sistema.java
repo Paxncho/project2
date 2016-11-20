@@ -90,7 +90,52 @@ public class Sistema {
     
     public boolean AsignacionActividadSala (Actividad demanda)
     {
-     for (Aula)
+        if (demanda.getTipoRequerido() == TipoSala.SALA)
+        {
+            ArrayList<Sala> salasDisponibles = new ArrayList<>();
+            for (Sala existente : this.salas)
+            {
+                if (existente.getCapacidadAlumnos() == demanda.getRamo().getCantidadAlumnos())
+                {
+                    salasDisponibles.add(existente);
+                }
+            }
+            
+            Sala menor = new Sala("", Integer.MAX_VALUE);
+            
+            for (int i=0; i < salasDisponibles.size(); i++)
+            {
+                if (salasDisponibles.get(i).getCapacidadAlumnos() < menor.getCapacidadAlumnos())
+                {
+                    menor = salasDisponibles.get(i);
+                }
+            }
+            
+            return menor.getHorario().agregarActividad(demanda);
+        }
+        else
+        {
+            ArrayList<Laboratorio> laboratoriosDisponibles = new ArrayList<>();
+            for (Laboratorio existente : this.laboratorios)
+            {
+                if (existente.getCapacidadAlumnos() == demanda.getRamo().getCantidadAlumnos())
+                {
+                    laboratoriosDisponibles.add(existente);
+                }
+            }
+            
+            Laboratorio menor = new Laboratorio("", Integer.MAX_VALUE);
+            
+            for (int i=0; i < laboratoriosDisponibles.size(); i++)
+            {
+                if (laboratoriosDisponibles.get(i).getCapacidadAlumnos() < menor.getCapacidadAlumnos())
+                {
+                    menor = laboratoriosDisponibles.get(i);
+                }
+            }
+            
+            return menor.getHorario().agregarActividad(demanda);
+        }
     }
  }
  
