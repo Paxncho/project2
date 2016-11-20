@@ -35,4 +35,12 @@ public class Actividad {
     public void setDia(Dia dia) {
         this.dia = dia;
     }
+
+    public TipoSala getTipoRequerido() {
+        return tipoRequerido;
+    }
+
+    public void setTipoRequerido(TipoSala tipoRequerido) {
+        this.tipoRequerido = tipoRequerido;
+    }
 }

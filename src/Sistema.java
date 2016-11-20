@@ -72,6 +72,7 @@ public class Sistema {
         return true;
     }
     
+
     public void eliminarSala(String id)
     {
         this.salas.remove(id);
