@@ -5,6 +5,7 @@ public class Main {
     private static Sistema sistema = new Sistema();
 
     
+    
     public static void main(String[] args) {
         int opcion;
         
@@ -110,9 +111,15 @@ public class Main {
     private static void Ingresar_Sala(){
         String nombre;
         int capacidadAlumnos;
-        nombre =donLector.leerLinea("Ingresa el nombre");
+        nombre =donLector.leerLinea("Ingresa el nombre de la Sala");
         capacidadAlumnos = donLector.leerNumeroEntero("Ingresa la Capacidad de Alumnos de la Sala");
-        
+        Sala sala = new Sala (nombre,capacidadAlumnos);
+        if (sistema.agregarSala(sala) == true)
+        {
+            System.out.println("Felicidades, se ha creado la Sala Exitosamente");
+        }else{
+            System.out.println("Lo sentimos, hubo un error al tratar de crear la Sala");
+        }
         
     }
     
@@ -130,7 +137,22 @@ public class Main {
     }
     
     private static void Ingresar_Laboratorio(){
-        
+        String nombre;
+        int capacidadAlumnos;
+        String instrumento;
+        nombre =donLector.leerLinea("Ingresa el nombre del Laboratorio :");
+        capacidadAlumnos = donLector.leerNumeroEntero("Ingresa la Capacidad de Alumnos del Laboratorio :");
+        Laboratorio laboratorio = new Laboratorio (nombre, capacidadAlumnos);
+        if(sistema.agregarLaboratorio(laboratorio)==true)
+        {
+            do{
+            instrumento = donLector.leerLinea("Ingrese el nombre del Instrumento (o 0 para Salir)");
+            if (!instrumento.equals("0")){
+                laboratorio.agregarInstrumento(instrumento);
+            }
+            }while (!instrumento.equals("0"));
+            
+        }   
     }
     
     private static void Remover_Laboratorio(){
