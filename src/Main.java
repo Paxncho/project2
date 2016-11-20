@@ -8,6 +8,7 @@ public class Main {
     public static void main(String[] args) {
         int opcion;
         sistema = LectorDeArchivos.cargarArchivo();
+        
         do{
             Menu.mostrarMenuPrincipal();
             opcion = donLector.leerOpcion("Ingresa tu opcion: ", 0, 4);
@@ -140,6 +141,16 @@ public class Main {
                             break;
                     }
                     break;
+                case 8:
+                    Menu.mostrarConfirmacionBorrado();
+                    opcion = donLector.leerOpcion("Ingrese u opcion: ", 1, 2);
+                    switch(opcion){
+                        case 1:
+                            Reiniciar_Datos();
+                            break;
+                        case 2:
+                            opcion = 7;
+                    }
                 case 0:
                     System.out.println("Gracias por usar el programa!!");
                     System.out.println("---FIN---");
@@ -432,5 +443,10 @@ public class Main {
     
     private static void Guardar_Semestre(){
         CreadorDeArchivos.crearArchivo(sistema.toSave());
+    }
+    
+    private static void Reiniciar_Datos(){
+        sistema = new Sistema();
+        System.out.println("Datos eliminados correctamente.");
     }
 }

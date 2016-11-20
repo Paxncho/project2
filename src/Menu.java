@@ -18,6 +18,7 @@ public class Menu
         System.out.println ("5) Ingresar/Remover Actividad");
         System.out.println ("6) Exportar Horario a Excel");
         System.out.println ("7) Listar Salas y Laboratorios");
+        System.out.println ("8) Reiniciar datos");
         System.out.println ("0) Salir");
         System.out.println ("\n");
    }
@@ -66,6 +67,13 @@ public class Menu
        System.out.println("1) En forma Ascendente");
        System.out.println("2) En forma Descendente");
        System.out.println("0) Volver");
+       System.out.println("\n");
+   }
+   
+   static public void mostrarConfirmacionBorrado(){
+       System.out.println("¿Está seguro que quiere borrar todos los datos?");
+       System.out.println("1) Si");
+       System.out.println("2) No");
        System.out.println("\n");
    }
 }
