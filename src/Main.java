@@ -287,7 +287,20 @@ public class Main {
     }
     
     private static void Ingresar_Actividad(){
-    
+        String nombreRamo;
+        int cantidadAlumnos;
+        Dia dia;
+        int bloque;
+        //boolean salaAsignada;
+        
+        nombreRamo= donLector.leerLinea("Ingrese el nombre de la Actividad :");
+        cantidadAlumnos = donLector.leerNumeroEntero("Ingrese la Cantidad de Alumnos");
+        dia = donLector.leerDia("Ingrese el Dia : ");
+        bloque = donLector.leerNumeroEntero("Ingrese el Bloque: ");
+        
+        
+        
+        
     }
     private static void Remover_Actividad(){
     

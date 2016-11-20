@@ -111,5 +111,35 @@ public class Lector
         return diaActividad;
         
     }
+    public void leerTipo (String mensaje)
+    {
+        boolean continuar = true;
+        String tipo = null;
+        String tipoActividad = null;
+        while (continuar)
+        {
+            tipo = leerLinea(mensaje);
+            tipo.toUpperCase();
+            if (tipo.equals("SALA")||tipo.equals("LABORATORIO"))
+            {
+                continuar = false;
+            }
+            else
+            {
+                System.out.println("Tipo Requerido inexistente, por favor tratar nuevamente");
+            }
+            
+        }
+        switch (tipo){
+            case "SALA":
+                tipoActividad = TipoSala.SALA;
+                break;
+            case "LABORATORIO":
+                tipoActividad = TipoSala.LABORATORIO;
+                break;
+
+        return tipoActividad;
+        }
+    }
 }
     
