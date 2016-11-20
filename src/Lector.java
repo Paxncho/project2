@@ -111,11 +111,11 @@ public class Lector
         return diaActividad;
         
     }
-    public void leerTipo (String mensaje)
+    public TipoSala leerTipo (String mensaje)
     {
         boolean continuar = true;
         String tipo = null;
-        String tipoActividad = null;
+        TipoSala tipoActividad = null;
         while (continuar)
         {
             tipo = leerLinea(mensaje);
@@ -137,9 +137,9 @@ public class Lector
             case "LABORATORIO":
                 tipoActividad = TipoSala.LABORATORIO;
                 break;
-
-        return tipoActividad;
         }
+        
+        return tipoActividad;
     }
 }
     
