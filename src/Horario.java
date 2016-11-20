@@ -18,6 +18,7 @@ public class Horario {
                return false;
            }
         }
+        nuevaActividad.setSalaAsignada(true);
         this.actividades.add(nuevaActividad);
         return true;
     }
@@ -29,6 +30,7 @@ public class Horario {
     
     public boolean eliminarBloques (Actividad eliminarActividad)
     {
+       eliminarActividad.setSalaAsignada(false);
        return this.actividades.remove(eliminarActividad);
     }
     

@@ -3,6 +3,7 @@ public class Main {
 
     private static Lector donLector = new Lector();
     private static Sistema sistema = new Sistema();
+   
 
     
     
@@ -51,7 +52,7 @@ public class Main {
                     CargarDemanda_Aula();
                     break;
                 case 4:
-                    Menu.mostrarMenu1();
+                    Menu.mostrarMenuResolverDemanda();
                     opcion = donLector.leerOpcion ("Ingresa tu opcion: ",0,2);
                     switch (opcion)
                     {
@@ -59,7 +60,7 @@ public class Main {
                             VerListadoDemanda_Aula();
                             break;
                         case 2:
-                            Menu.mostrarMenu2();
+                            Menu.mostrarMenuSeleccionarActividad();
                             opcion = donLector.leerOpcion ("Ingresa tu opcion: ",0,2);
                             switch (opcion)
                             {
@@ -81,15 +82,45 @@ public class Main {
                                     
                                     break;
                                 case 2:
+                                    Menu.mostrarMenuSalaLaboratorio();
+                                    opcion = donLector.leerOpcion ("Ingresa tu opcion :",0,2);
+                                    switch (opcion)
+                                    {
+                                        case 1:
+                                            Remover_Sala_Asignada();
+                                            break;
+                                        case 2:
+                                            Remover_Laboratorio_Asignado();
+                                            break;
+                                        case 0:
+                                            opcion = 7;
+                                            break;
+                                    }
                                     break;
                                 case 0:
+                                    opcion=7;
                                     break;
                                     
                             }
                             break;
                         case 0:
-                            Menu.mostrarMenuPrincipal();
                             opcion=7;
+                            break;
+                    }
+                    break;
+                case 5:
+                    Menu.mostrarMenuIngresarRemover("Actividad");
+                    opcion= donLector.leerOpcion("Ingrese su opcion: ", 0, 2);
+                    switch (opcion)
+                    {
+                        case 1:
+                            Ingresar_Actividad();
+                            break;
+                        case 2:
+                            Remover_Actividad();
+                            break;
+                        case 0:
+                            opcion= 7;
                             break;
                     }
                     break;
@@ -102,12 +133,7 @@ public class Main {
         }while(opcion != 0);
 
     }
-    private static void CargarDemanda(){
-        
-    }
-    private static void ResolverDemanda (){
     
-    }
     private static void Ingresar_Sala(){
         String nombre;
         int capacidadAlumnos;
@@ -170,9 +196,18 @@ public class Main {
         
     }
     private static void CargarDemanda_Aula (){
-        
+        String rutaArchivo;
+        rutaArchivo = donLector.leerLinea("Ingrese la ruta del archivo Excel que desea Leer");
+        LectorDeArchivos.LeerExcel(rutaArchivo, sistema);
     }
     private static void VerListadoDemanda_Aula(){
+        String listado = sistema.mostrarDemandasIncompletas();
+        if (listado.equals(""))
+        {
+            System.out.println("No hay Demandas incompletas");
+        }else{
+            System.out.println("" + listado);
+        }
         
     }
     private static void Asignar_Sala(){
@@ -242,6 +277,20 @@ public class Main {
         {
             System.out.println("Error: este bloque ya se encontraba ocupado");
         }        
+    }
+    
+    private static void Remover_Laboratorio_Asignado(){
+    
+    }
+    private static void Remover_Sala_Asignada(){
+    
+    }
+    
+    private static void Ingresar_Actividad(){
+    
+    }
+    private static void Remover_Actividad(){
+    
     }
 
     

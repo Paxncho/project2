@@ -186,5 +186,18 @@ public class Sistema {
             }
         }
     }
+    
+    public String mostrarDemandasIncompletas(){
+        String listadoDemandas = "";
+        for(Actividad existente: this.actividades)
+        {
+            if(!existente.isSalaAsignada())
+            {
+                listadoDemandas += existente.toString() + "\n";
+            }
+        }
+        return listadoDemandas;
+    }
+    
  }
  

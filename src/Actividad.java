@@ -4,12 +4,14 @@ public class Actividad {
     private int bloque;
     private Dia dia;
     private TipoSala tipoRequerido;
+    private boolean salaAsignada;
 
     public Actividad(Ramo ramo, int bloque, Dia dia, TipoSala tipoRequerido) {
         this.ramo = ramo;
         this.bloque = bloque;
         this.dia = dia;
         this.tipoRequerido = tipoRequerido;
+        this.salaAsignada = false;
     }
     
     public Ramo getRamo() {
@@ -42,5 +44,21 @@ public class Actividad {
 
     public void setTipoRequerido(TipoSala tipoRequerido) {
         this.tipoRequerido = tipoRequerido;
+    }
+    
+    public void setSalaAsignada (boolean salaAsignada)
+    {
+        this.salaAsignada = salaAsignada;
+    }
+    public boolean isSalaAsignada ()
+    {
+        return this.salaAsignada;
+    }
+    public String toString()
+    {
+        return ramo.toString() +
+               "Dia: " + dia.toString() + "\n" +
+               "Bloque: " + bloque + "\n" + 
+               "Tipo de Aula Requerida: " + tipoRequerido + "\n";
     }
 }

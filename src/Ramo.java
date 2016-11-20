@@ -22,5 +22,9 @@ public class Ramo {
     public void setCantidadAlumnos(int cantidadAlumnos) {
         this.cantidadAlumnos = cantidadAlumnos;
     }
-    
+    public String toString()
+    {
+        return "Nombre: " + nombre + "\n" +
+               "Cantidad de Alumnos: " + cantidadAlumnos + "\n";
+    }
 }

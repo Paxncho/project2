@@ -13,22 +13,23 @@ public class Menu
         System.out.println ("\n");
         System.out.println ("1) Ingresar/Remover Sala");
         System.out.println ("2) Ingresar/Remover Laboratorio");
-        System.out.println ("3) Cargar Demanda");
+        System.out.println ("3) Cargar Demanda desde Excel");
         System.out.println ("4) Resolver Demanda");
+        System.out.println ("5) Ingresar/Remover Actividad");
         System.out.println ("0) Salir");
         System.out.println ("\n");
    }
   
-   static public void mostrarMenu1()
+   static public void mostrarMenuResolverDemanda()
    {
         System.out.println ("Resolver Demanda");
-        System.out.println ("1) Ver Listado de Demandas Cumplidas");
+        System.out.println ("1) Ver Listado de Demandas Incumplidas");
         System.out.println ("2) Seleccionar Actividad");
         System.out.println ("0) Volver");
         System.out.println ("\n");
    }
    
-   static public void mostrarMenu2()
+   static public void mostrarMenuSeleccionarActividad()
    {
         System.out.println ("Seleccionar Actividad");
         System.out.println ("\n");
