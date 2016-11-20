@@ -280,9 +280,73 @@ public class Main {
     }
     
     private static void Remover_Laboratorio_Asignado(){
+        String nombreActividad;
+        Dia diaActividad;
+        int bloqueActividad;
+        String nombreLaboratorio;
+        nombreActividad = donLector.leerLinea ("Ingrese nombre de la Actividad: ");
+        diaActividad = donLector.leerDia ("Ingrese dia de la Actividad: ");
+        bloqueActividad = donLector.leerNumeroEntero("Ingrese bloque de la Actividad: ");
+        
+        Actividad actividadNueva = sistema.obtenerActividad(nombreActividad, diaActividad, bloqueActividad);
+        
+        if (actividadNueva.equals(null))
+        {
+            System.out.println("La Actividad ingresada no existe ");
+            return;
+        }
+        nombreLaboratorio = donLector.leerLinea("Ingrese el nombre del laboratorio para la actividad: ");
+        
+        Laboratorio laboratorioNuevo = sistema.obtenerLaboratorio(nombreLaboratorio);
+        
+        if (laboratorioNuevo.equals(null))
+        {
+            System.out.println("El laboratorio ingresado no existe ");
+            return;
+        }
+        if (laboratorioNuevo.getHorario().eliminarBloque(actividadNueva))
+        {
+            System.out.println("La eliminacion fue realizada exitosamente!!");
+        }
+        else
+        {
+            System.out.println("Error: este bloque ya se encontra desocupado");
+        } 
     
     }
     private static void Remover_Sala_Asignada(){
+        String nombreActividad;
+        Dia diaActividad;
+        int bloqueActividad;
+        String nombreSala;
+        nombreActividad = donLector.leerLinea ("Ingrese nombre de la Actividad: ");
+        diaActividad = donLector.leerDia ("Ingrese dia de la Actividad: ");
+        bloqueActividad = donLector.leerNumeroEntero("Ingrese bloque de la Actividad: ");
+        
+        Actividad actividadNueva = sistema.obtenerActividad(nombreActividad, diaActividad, bloqueActividad);
+        
+        if (actividadNueva.equals(null))
+        {
+            System.out.println("La Actividad ingresada no existe ");
+            return;
+        }
+        nombreSala = donLector.leerLinea("Ingrese el nombre de la sala para la actividad: ");
+        
+        Sala salaNueva = sistema.obtenerSala(nombreSala);
+        
+        if (salaNueva.equals(null))
+        {
+            System.out.println("La sala Ingresada no existe ");
+            return;
+        }
+        if (salaNueva.getHorario().eliminarBloque(actividadNueva))
+        {
+            System.out.println("La eliminacion fue realizada exitosamente!!");
+        }
+        else
+        {
+            System.out.println("Error: este bloque ya se encuentra desocupado");
+        }
     
     }
     
