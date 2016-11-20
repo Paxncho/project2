@@ -28,7 +28,7 @@ public class Horario {
         return (50-(this.actividades.size()));
     }
     
-    public boolean eliminarBloques (Actividad eliminarActividad)
+    public boolean eliminarBloque(Actividad eliminarActividad)
     {
        eliminarActividad.setSalaAsignada(false);
        return this.actividades.remove(eliminarActividad);
