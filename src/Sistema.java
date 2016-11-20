@@ -1,8 +1,3 @@
-
-
-
-
-
 import java.util.ArrayList;
 
 public class Sistema {
@@ -16,15 +11,13 @@ public class Sistema {
         this.salas = new ArrayList <Sala>();
     }
 
-
-
     public boolean agregarActividad (Actividad actividad)
     {
         return this.actividades.add(actividad);    
     }
     
-    public void eliminarActividad(Actividad actividad){
-        
+    public void eliminarActividad(Actividad actividad)
+    {
         this.actividades.remove(actividad);
     }
     
@@ -40,7 +33,6 @@ public class Sistema {
     
     public boolean agregarLaboratorio (Laboratorio laboratorio)
     {
-    
        for (Laboratorio existente : this.laboratorios)
        {
            if (existente.getNombre().equals(laboratorio.getNombre()) )
@@ -50,12 +42,11 @@ public class Sistema {
         }
         this.laboratorios.add(laboratorio);
         return true;
-    
     }
+    
     public void eliminarLaboratorio(Laboratorio laboratorio){
         
         this.laboratorios.remove(laboratorio);
-    
     }
     
     public int cantidadLaboratorios()
@@ -70,7 +61,6 @@ public class Sistema {
     
     public boolean agregarSala (Sala sala)
     {
-    
        for (Sala existente : this.salas)
        {
            if (existente.getNombre().equals(sala.getNombre ()) )
@@ -80,11 +70,10 @@ public class Sistema {
         }
         this.salas.add(sala);
         return true;
-    
     }
     
-    public void eliminarSala(String id){
-        
+    public void eliminarSala(String id)
+    {
         this.salas.remove(id);
     }
     
@@ -97,5 +86,10 @@ public class Sistema {
     {
         return this.salas.get(index);
     }
- 
+    
+    public boolean AsignacionActividadSala (Actividad demanda)
+    {
+     for (Aula)
+    }
  }
+ 

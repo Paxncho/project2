@@ -3,13 +3,13 @@ public class Actividad {
     private Ramo ramo;
     private int bloque;
     private Dia dia;
+    private TipoSala tipoRequerido;
 
-
-    public Actividad(Ramo ramo, int bloque, Dia dia) {
+    public Actividad(Ramo ramo, int bloque, Dia dia, TipoSala tipoRequerido) {
         this.ramo = ramo;
         this.bloque = bloque;
         this.dia = dia;
-
+        this.tipoRequerido = tipoRequerido;
     }
     
     public Ramo getRamo() {
@@ -35,7 +35,4 @@ public class Actividad {
     public void setDia(Dia dia) {
         this.dia = dia;
     }
-
-
-    
- }
+}

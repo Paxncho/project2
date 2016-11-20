@@ -5,8 +5,8 @@ public class Laboratorio extends Aula{
 
     private ArrayList<String> instrumentos;
 
-    public Laboratorio(String nombre) {
-        super(nombre);
+    public Laboratorio(String nombre, int capacidadAlumnos) {
+        super(nombre, capacidadAlumnos);
         this.instrumentos = new ArrayList<String>();
     }
 

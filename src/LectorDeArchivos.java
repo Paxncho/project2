@@ -15,6 +15,8 @@ public class LectorDeArchivos{
         try {
             String nombreRamo = null;
             int cantidadAlumnos = 0;
+            Ramo ramo;
+            Actividad actividad;
             //Recibir el archivo a leer -Pencho
             FileInputStream file = new FileInputStream(new File(rutaArchivo));
 
@@ -48,64 +50,84 @@ public class LectorDeArchivos{
                     } else if (i < 12) {
                         switch(cell.getStringCellValue()){
                             case "s":
+                                //Creo el ramo con su nombre y su cantidad de alumnos
+                                ramo = new Ramo(nombreRamo, cantidadAlumnos);
+                                //Asocio el ramo a la actividad
+                                actividad = new Actividad(ramo, i-1, Dia.LUNES, TipoSala.SALA);
+                                //Con la actividad ya creada, la agrego de vuelta al sistema
+                                sistema.agregarActividad(actividad);
+                                break;
                             case "LF":
                             case "LC":
                             case "LM":
-                            case "G":
-                                //Creo el ramo con su nombre y su cantidad de alumnos
-                                Ramo ramo = new Ramo(nombreRamo, cantidadAlumnos);
-                                //Asocio el ramo a la actividad, como no se le asigna aún una sala se inicializa como null ese parametro
-                                Actividad actividad = new Actividad(ramo, i-1, Dia.LUNES, null);
-                                //Con la actividad ya creada, la agrego de vuelta al sistema
+                                ramo = new Ramo(nombreRamo, cantidadAlumnos);
+                                actividad = new Actividad(ramo, i-1, Dia.LUNES, TipoSala.LABORATORIO);
                                 sistema.agregarActividad(actividad);
+                                break;
                         }
                     //Si leemos entre la 12 y la 22, corresponde al Martes
                     } else if (i < 22) {
                         switch(cell.getStringCellValue()){
                             case "s":
+                                ramo = new Ramo(nombreRamo, cantidadAlumnos);
+                                actividad = new Actividad(ramo, i-11, Dia.MARTES, TipoSala.SALA);
+                                sistema.agregarActividad(actividad);
+                                break;
                             case "LF":
                             case "LC":
                             case "LM":
-                            case "G":
-                                Ramo ramo = new Ramo(nombreRamo, cantidadAlumnos);
-                                Actividad actividad = new Actividad(ramo, i-11, Dia.MARTES, null);
+                                ramo = new Ramo(nombreRamo, cantidadAlumnos);
+                                actividad = new Actividad(ramo, i-11, Dia.MARTES, TipoSala.LABORATORIO);
                                 sistema.agregarActividad(actividad);
+                                break;
                         }
                     //Si leemos entre la 22 y la 32, corresponde al Miercoles
                     } else if (i < 32) {
                         switch(cell.getStringCellValue()){
                             case "s":
+                                ramo = new Ramo(nombreRamo, cantidadAlumnos);
+                                actividad = new Actividad(ramo, i-21, Dia.MIERCOLES, TipoSala.SALA);
+                                sistema.agregarActividad(actividad);
+                                break;
                             case "LF":
                             case "LC":
                             case "LM":
-                            case "G":
-                                Ramo ramo = new Ramo(nombreRamo, cantidadAlumnos);
-                                Actividad actividad = new Actividad(ramo, i-21, Dia.MIERCOLES, null);
+                                ramo = new Ramo(nombreRamo, cantidadAlumnos);
+                                actividad = new Actividad(ramo, i-21, Dia.MIERCOLES, TipoSala.LABORATORIO);
                                 sistema.agregarActividad(actividad);
+                                break;
                         }
                     //Si leemos entre la 32 y la 42, corresponde al Jueves
                     } else if (i < 42) {
                         switch(cell.getStringCellValue()){
                             case "s":
+                                ramo = new Ramo(nombreRamo, cantidadAlumnos);
+                                actividad = new Actividad(ramo, i-31, Dia.JUEVES, TipoSala.SALA);
+                                sistema.agregarActividad(actividad);
+                                break;
                             case "LF":
                             case "LC":
                             case "LM":
-                            case "G":
-                                Ramo ramo = new Ramo(nombreRamo, cantidadAlumnos);
-                                Actividad actividad = new Actividad(ramo, i-31, Dia.JUEVES, null);
+                                ramo = new Ramo(nombreRamo, cantidadAlumnos);
+                                actividad = new Actividad(ramo, i-31, Dia.JUEVES, TipoSala.LABORATORIO);
                                 sistema.agregarActividad(actividad);
+                                break;
                         }
                     //Finalmente las últiimas 10 corresponden al dia Viernes
                     } else if (i < 52) {
                         switch(cell.getStringCellValue()){
                             case "s":
+                                ramo = new Ramo(nombreRamo, cantidadAlumnos);
+                                actividad = new Actividad(ramo, i-41, Dia.VIERNES, TipoSala.SALA);
+                                sistema.agregarActividad(actividad);
+                                break;
                             case "LF":
                             case "LC":
                             case "LM":
-                            case "G":
-                                Ramo ramo = new Ramo(nombreRamo, cantidadAlumnos);
-                                Actividad actividad = new Actividad(ramo, i-41, Dia.VIERNES, null);
+                                ramo = new Ramo(nombreRamo, cantidadAlumnos);
+                                actividad = new Actividad(ramo, i-41, Dia.VIERNES, TipoSala.LABORATORIO);
                                 sistema.agregarActividad(actividad);
+                                break;
                         }
                     } 
                 }
