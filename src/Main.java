@@ -218,6 +218,7 @@ public class Main {
         rutaArchivo = donLector.leerLinea("Ingrese la ruta del archivo Excel que desea Leer");
         LectorDeArchivos.LeerExcel(rutaArchivo, sistema);
     }
+    
     private static void VerListadoDemanda_Aula(){
         String listado = sistema.mostrarDemandasIncompletas();
         if (listado.equals(""))
@@ -370,10 +371,25 @@ public class Main {
     }
     
     private static void Ingresar_Actividad(){
-    
+       
     }
     
     private static void Remover_Actividad(){
+        String nombreActividad;
+        Dia diaActividad;
+        int bloqueActividad;
+        nombreActividad = donLector.leerLinea("Ingrese el nombre de la actividad: ");
+        diaActividad = donLector.leerDia("Ingrese el dia de la actividad: ");
+        bloqueActividad = donLector.leerNumeroEntero("Ingrese el bloque de la actividad: ");
+        
+        if (sistema.eliminarActividad(nombreActividad, diaActividad, bloqueActividad))
+        {
+            System.out.println("La Actividad ha sido eliminada exitosamente!!");
+        }
+        else
+        {
+            System.out.println("Error: La Actividad no pudo ser eliminada");
+        }
     
     }
     
@@ -383,9 +399,26 @@ public class Main {
     
     private static void Listar_Ascendente(){
         
+        String listado = sistema.listarAscendente();
+        if (listado.equals(""))
+        {
+            System.out.println("No hay salas o laboratorios para mostrar");
+        }else{
+            System.out.println("" + listado);
+        }
+        
+               
     }
     
     private static void Listar_Descendente(){
+        
+         String listado = sistema.listarDescendente();
+        if (listado.equals(""))
+        {
+            System.out.println("No hay salas o laboratorios para mostrar");
+        }else{
+            System.out.println("" + listado);
+        }
         
     }
 

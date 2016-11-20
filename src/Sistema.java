@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Sistema {
     private ArrayList <Actividad> actividades;
@@ -17,9 +18,17 @@ public class Sistema {
         return this.actividades.add(actividad);
     }
     
-    public void eliminarActividad(Actividad actividad)
+    public boolean eliminarActividad(String nombre, Dia dia, int bloque)
     {
-        this.actividades.remove(actividad);
+        for(Actividad existente: this.actividades){
+            if (existente.getRamo().getNombre().equals(nombre)&& existente.getDia().equals(dia) && existente.getBloque() == bloque )
+            {
+                desasociarActividad(existente);
+                this.actividades.remove(existente);
+                return true;
+            }
+        }
+        return false;
     }
     
     public int cantidadActividades()
@@ -107,8 +116,7 @@ public class Sistema {
                 return true;
             }
         }
-        return false;
-        
+        return false;        
     }
     
     public int cantidadSalas()
@@ -186,6 +194,39 @@ public class Sistema {
             }
         }
     }
+     public boolean desasociarActividad (Actividad desasociar)
+     {
+        if (desasociar.getTipoRequerido() == TipoSala.SALA)
+        {
+            for (Sala existente : this.salas)
+            {
+                Actividad actividadSala = existente.getHorario().getActividad(desasociar.getDia(),desasociar.getBloque());
+                
+                if(desasociar.equals(actividadSala))
+                {
+                    return existente.getHorario().eliminarBloque(desasociar);
+                    
+                }
+            }
+            return false;
+            
+        }
+        else
+        {
+            for (Laboratorio existente : this.laboratorios)
+            {
+                Actividad actividadLaboratorio = existente.getHorario().getActividad(desasociar.getDia(),desasociar.getBloque());
+                
+                if(desasociar.equals(actividadLaboratorio))
+                {
+                    return existente.getHorario().eliminarBloque(desasociar);
+                    
+                }
+            }
+            return false;
+        
+        }
+    }
     
     public String mostrarDemandasIncompletas(){
         String listadoDemandas = "";
@@ -199,5 +240,43 @@ public class Sistema {
         return listadoDemandas;
     }
     
+    public String listarAscendente ()            
+    {
+        String listado = "";
+        ArrayList<Aula> aulasDisponibles = new ArrayList<>();
+        for (Aula existente : this.salas)
+        {
+            aulasDisponibles.add(existente);              
+        }
+        for (Aula existente : this.laboratorios)
+        {
+            aulasDisponibles.add(existente);
+        }
+        Collections.sort(aulasDisponibles);
+        for (int i = 0; i < aulasDisponibles.size(); i++){
+            listado+= aulasDisponibles.get(i).toString() + "\n";
+        }
+        return listado;
+    }
+    
+    public String listarDescendente ()
+    {
+        String listado = "";
+        ArrayList<Aula> aulasDisponibles = new ArrayList<>();
+        for (Aula existente : this.salas)
+        {
+            aulasDisponibles.add(existente);              
+        }
+        for (Aula existente : this.laboratorios)
+        {
+            aulasDisponibles.add(existente);
+        }
+        Collections.sort(aulasDisponibles);
+        for (int i = aulasDisponibles.size()-1; i > 0; i--){
+            listado+= aulasDisponibles.get(i).toString() + "\n";
+        }
+        return listado;
+        
+    }
  }
  

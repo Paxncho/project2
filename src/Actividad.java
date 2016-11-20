@@ -1,4 +1,4 @@
-public class Actividad {
+public class Actividad implements Comparable<Actividad>{
 
     private Ramo ramo;
     private int bloque;
@@ -60,5 +60,21 @@ public class Actividad {
                "Dia: " + dia.toString() + "\n" +
                "Bloque: " + bloque + "\n" + 
                "Tipo de Aula Requerida: " + tipoRequerido + "\n";
+    }
+
+    public int compareTo(Actividad actividadComparar) {
+        if (this.dia.ordinal() < actividadComparar.getDia().ordinal()){
+            return 1;
+        } else if (this.dia.ordinal() > actividadComparar.getDia().ordinal()){
+            return -1;
+        } else {
+            if (this.bloque < actividadComparar.getBloque()){
+                return 1;
+            } else if (this.bloque > actividadComparar.getBloque()){
+                return -1;
+            } else {
+                return 0;
+            }
+        }
     }
 }
