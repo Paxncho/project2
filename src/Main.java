@@ -176,6 +176,12 @@ public class Main {
         
     }
     private static void Asignar_Sala(){
+        String nombreActividad;
+        String diaActividad;
+        int bloqueActividad;
+        nombreActividad = donLector.leerLinea ("Ingrese nombre de la Actividad: ");
+        diaActividad = donLector.leerLinea ("Ingrese dia de la Actividad: ");
+        bloqueActividad = donLector.leerNumeroEntero("Ingrese bloque de la Actividad: ");
         
     }
     private static void Asignar_Laboratorio(){

@@ -5,6 +5,7 @@ public class Sistema {
     private ArrayList <Laboratorio> laboratorios;
     private ArrayList <Sala> salas; 
     
+    
     public Sistema() {
         this.actividades = new ArrayList <Actividad>();
         this.laboratorios = new ArrayList <Laboratorio>();
@@ -26,9 +27,33 @@ public class Sistema {
         return this.actividades.size();
     }
     
-    public Actividad obtenerActividad(int index)
+    public Actividad obtenerActividad(String nombre, String dia, int bloque)
     {
-        return this.actividades.get(index);
+        dia.toUpperCase();
+        Dia diaActividad;
+        switch (dia){
+            case "LUNES":
+                diaActividad = Dia.LUNES;
+                break;
+            case "MARTES":
+                diaActividad = Dia.MARTES;
+                break;
+            case "MIERCOLES":
+                diaActividad = Dia.MIERCOLES;
+                break;
+            case "JUEVES":
+                diaActividad = Dia.JUEVES;
+                break;
+            case "VIERNES":
+                diaActividad = Dia.VIERNES;
+                break;
+        }
+        for (Actividad existente: this.actividades)
+        {
+            
+        }
+        
+        return null;
     }
     
     public boolean agregarLaboratorio (Laboratorio laboratorio)
@@ -44,9 +69,17 @@ public class Sistema {
         return true;
     }
     
-    public void eliminarLaboratorio(Laboratorio laboratorio){
+    public boolean eliminarLaboratorio(String nombre){
         
-        this.laboratorios.remove(laboratorio);
+      for(Laboratorio existente: this.laboratorios){
+            if (existente.getNombre().equals(nombre))
+            {
+                this.laboratorios.remove(existente);
+                return true;
+            }
+        }
+        return false;
+        
     }
     
     public int cantidadLaboratorios()
@@ -73,9 +106,17 @@ public class Sistema {
     }
     
 
-    public void eliminarSala(String id)
+    public boolean eliminarSala(String nombre)
     {
-        this.salas.remove(id);
+        for(Sala existente: this.salas){
+            if (existente.getNombre().equals(nombre))
+            {
+                this.salas.remove(existente);
+                return true;
+            }
+        }
+        return false;
+        
     }
     
     public int cantidadSalas()
