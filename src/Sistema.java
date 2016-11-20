@@ -27,32 +27,16 @@ public class Sistema {
         return this.actividades.size();
     }
     
-    public Actividad obtenerActividad(String nombre, String dia, int bloque)
+    public Actividad obtenerActividad(String nombre, Dia dia, int bloque)
     {
-        dia.toUpperCase();
-        Dia diaActividad;
-        switch (dia){
-            case "LUNES":
-                diaActividad = Dia.LUNES;
-                break;
-            case "MARTES":
-                diaActividad = Dia.MARTES;
-                break;
-            case "MIERCOLES":
-                diaActividad = Dia.MIERCOLES;
-                break;
-            case "JUEVES":
-                diaActividad = Dia.JUEVES;
-                break;
-            case "VIERNES":
-                diaActividad = Dia.VIERNES;
-                break;
-        }
+         
         for (Actividad existente: this.actividades)
         {
-            
+            if (existente.getRamo().getNombre().equals(nombre) && existente.getDia().equals(dia) && existente.getBloque() == (bloque))
+            {
+                return existente;
+            }
         }
-        
         return null;
     }
     
@@ -124,9 +108,16 @@ public class Sistema {
         return this.salas.size();
     }
     
-    public Sala obtenerSala(int index)
+    public Sala obtenerSala(String nombre)
     {
-        return this.salas.get(index);
+        for (Sala existente: this.sala)
+        {
+            if (existente.getNombre().equals(nombre))
+            {
+                return existente;
+            }
+        }
+        return null;
     }
     
     public boolean AsignacionActividadSala (Actividad demanda)

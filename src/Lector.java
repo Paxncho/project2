@@ -71,5 +71,45 @@ public class Lector
         }
         return opcion;
     }
+    
+    public Dia leerDia (String mensaje)
+    {
+        boolean continuar = true;
+        String dia;
+        Dia diaActividad;
+        while (continuar)
+        {
+            dia = leerLinea(mensaje);
+            dia.toUpperCase();
+            if (dia.equals("LUNES")|| dia.equals ("MARTES")|| dia.equals("MIERCOLES")||dia.equals("JUEVES")||dia.equals("VIERNES"))
+            {
+                continuar = false;
+            }
+            else
+            {
+                System.out.println("Dia inexistente, por favor tratar nuevamente");
+            }
+            
+        }
+        switch (dia){
+            case "LUNES":
+                diaActividad = Dia.LUNES;
+                break;
+            case "MARTES":
+                diaActividad = Dia.MARTES;
+                break;
+            case "MIERCOLES":
+                diaActividad = Dia.MIERCOLES;
+                break;
+            case "JUEVES":
+                diaActividad = Dia.JUEVES;
+                break;
+            case "VIERNES":
+                diaActividad = Dia.VIERNES;
+                break;
+        }
+        return diaActividad;
+        
+    }
 }
     
