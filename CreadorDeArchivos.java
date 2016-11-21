@@ -2,32 +2,16 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
-<<<<<<< HEAD
-<<<<<<< HEAD
-/**
- * @author Luis Aburto, M. Fernanda Matera, Jose F. Riffo
- * @version 
-=======
-=======
->>>>>>> d41aa9a0b5de9c5992911a98bcabc391556c4610
 import java.util.ArrayList;
 import java.util.Scanner;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
-<<<<<<< HEAD
->>>>>>> origin/master
-=======
->>>>>>> d41aa9a0b5de9c5992911a98bcabc391556c4610
 
-*/
 
 public class CreadorDeArchivos {
-    /**
-     * 
-     * @param save 
-     */
+
     public static void crearArchivo(String save){
         try{
             File guardar = new File("\\temp\\save.proyecto");
@@ -244,6 +228,12 @@ public class CreadorDeArchivos {
                 aulaActual.createCell(3).setCellValue(instrumentos);
             }          
             
+            for (int i = 0; i < 15; i++){
+                hojaHorarios.autoSizeColumn(i);
+                hojaListaActividades.autoSizeColumn(i);
+                hojaListaSalasLaboratorios.autoSizeColumn(i);
+            }
+            
             // Escribimos el archivo
             // Esto de aquí es lo más importante de saber, todo esto crea el archivo -Pencho
             try {
@@ -264,6 +254,7 @@ public class CreadorDeArchivos {
                 return false;
             }
         } catch (FileNotFoundException ex) {
+            System.out.println("opps");
             return false;
         }
     }
