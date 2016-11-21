@@ -1,9 +1,16 @@
 import java.io.File;
 import java.io.FileWriter;
+/**
+ * @author Luis Aburto, M. Fernanda Matera, Jose F. Riffo
+ * @version 
 
+*/
 
 public class CreadorDeArchivos {
-
+    /**
+     * 
+     * @param save 
+     */
     public static void crearArchivo(String save){
         try{
             File guardar = new File("\\temp\\save.proyecto");

@@ -11,7 +11,18 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 
+/**
+ * @author Luis Aburto, M. Fernanda Matera, Jose F. Riffo
+ * @version 
+
+*/
+
 public class LectorDeArchivos{
+    /**
+     * 
+     * @param rutaArchivo Es un String, corresponde a la ruta donde se encuentra el archivo a leer
+     * @param sistema Es una clase Sistema, corresponde al objeto que guardará la información cargada
+     */
     public static void LeerExcel(String rutaArchivo, Sistema sistema){
         try {
             String nombreRamo = null;
@@ -144,7 +155,10 @@ public class LectorDeArchivos{
             System.out.println("Ruta de archivo no encontrada.");
         }
     }
-    
+    /**
+     * 
+     * @return Devuelve una clase Sistema, corresponde a toda la informacion cargada del archivo
+     */
     public static Sistema cargarArchivo(){
         try
         {

@@ -1,6 +1,12 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * @author Luis Aburto, M. Fernanda Matera, Jose F. Riffo
+
+
+*/
+
 public class Sistema {
     private ArrayList <Actividad> actividades;
     private ArrayList <Laboratorio> laboratorios;
@@ -12,12 +18,22 @@ public class Sistema {
         this.laboratorios = new ArrayList <>();
         this.salas = new ArrayList <>();
     }
-
+    /**
+     * 
+     * @param actividad Es del tipo clase Actividad
+     * @return retorna un boolean, si es true, la clase Actividad se agrega al ArrayList actividades
+     */
     public boolean agregarActividad (Actividad actividad)
     {
         return this.actividades.add(actividad);
     }
-    
+    /**
+     * 
+     * @param nombre Es del tipo String, corresponde al nombre de la actividad que se quiere remover
+     * @param dia Es del tipo Enum Dia, corresponde al dia de la actividad que se quiere remover
+     * @param bloque Es un numero entero, corresponde al bloque de la actividad que se quiere remover
+     * @return  retorna un boolean, si es true, la clase Laboratorio se remueve del ArrayList laboratorios
+     */
     public boolean eliminarActividad(String nombre, Dia dia, int bloque)
     {
         for(Actividad existente: this.actividades){
@@ -30,12 +46,21 @@ public class Sistema {
         }
         return false;
     }
-    
+    /**
+     * 
+     * @return Se retorna un numero entero, correspondiente a la cantidad de actividades dentro del arreglo actividades
+     */
     public int cantidadActividades()
     {
         return this.actividades.size();
     }
-    
+    /**
+     * 
+     * @param nombre Es del tipo String, corresponde al nombre de la actividad que se quiere obtener
+     * @param dia Es del tipo Enum Dia, corresponde al dia de la actividad que se quiere obtener
+     * @param bloque Es un numero entero, corresponde al bloque de la actividad que se quiere obtener
+     * @return Se retorna la actividad con los datos ingresados, si no se encuentra, se retorna un null
+     */
     public Actividad obtenerActividad(String nombre, Dia dia, int bloque)
     {
          
@@ -48,7 +73,11 @@ public class Sistema {
         }
         return null;
     }
-    
+    /**
+     * 
+     * @param laboratorio
+     * @return retorna un boolean, si es true, la clase Laboratorio se agrega al ArrayList laboratorios
+     */
     public boolean agregarLaboratorio (Laboratorio laboratorio)
     {
        for (Laboratorio existente : this.laboratorios)
@@ -61,7 +90,11 @@ public class Sistema {
         this.laboratorios.add(laboratorio);
         return true;
     }
-    
+    /**
+     * 
+     * @param nombre Es del tipo String, corresponde al nombre del Laboratorio
+     * @return Se retorna un boolean, si es true remueve el Laboratorio con el nombre existente (ingresado)
+     */
     public boolean eliminarLaboratorio(String nombre){
         
       for(Laboratorio existente: this.laboratorios){
@@ -74,12 +107,19 @@ public class Sistema {
         return false;
         
     }
-    
+    /**
+     * 
+     * @return Se retorna la el tamaño del ArrayList laboratorios, corresponde a la cantidad de laboratorios registrados, si no se encuentra se retorna un null
+     */
     public int cantidadLaboratorios()
     {
         return this.laboratorios.size();
     }
-    
+    /**
+     * 
+     * @param nombre Es un String, corresponde al nombre del laboratorio que se desea obtener
+     * @return Se retorna el laboratorio con el nombre ingresado, si no se encuentra, se retorna un null
+     */
     public Laboratorio obtenerLaboratorio(String nombre)
     {
         for (Laboratorio existente: this.laboratorios)
@@ -92,7 +132,11 @@ public class Sistema {
         return null;
     }
     
-    
+    /**
+     * 
+     * @param sala Es un objeto del tipo clase Sala, corresponde a la sala que se desea agregar
+     * @return retorna un boolean, si es true, la clase Sala se agrega al ArrayList salas
+     */
     public boolean agregarSala (Sala sala)
     {
        for (Sala existente : this.salas)
@@ -106,7 +150,11 @@ public class Sistema {
         return true;
     }
     
-
+    /**
+     * 
+     * @param nombre Es un objeto del tipo clase Sala, corresponde a la sala que se desea remover
+     * @return retorna un boolean, si es true, la clase Sala se remueve del ArrayList salas
+     */
     public boolean eliminarSala(String nombre)
     {
         for(Sala existente: this.salas){
@@ -118,12 +166,19 @@ public class Sistema {
         }
         return false;        
     }
-    
+    /**
+     * 
+     * @return se retorna un numero entero, correspondiente al tamaño del ArrayList salas, corresponde al numero de salas registradas
+     */
     public int cantidadSalas()
     {
         return this.salas.size();
     }
-    
+    /**
+     * 
+     * @param nombre Es un String, corresponde a al nombre de la sala que se desea obtener
+     * @return Se retorna la actividad con los datos ingresados, si no se encuentra, se retorna un null
+     */
     public Sala obtenerSala(String nombre)
     {
         for (Sala existente: this.salas)
@@ -135,7 +190,11 @@ public class Sistema {
         }
         return null;
     }
-    
+    /**
+     * 
+     * @param desasociar Es una clase Actividad, se refiere a la activdad que se desea asociar
+     * @return Retorna un boolean, si es true, se obtiene el bloque, y queda asociada una actividad a la Sala o Laboratorio
+     */
     public boolean AsignacionActividadSala (Actividad demanda)
     {
         if (demanda.getTipoRequerido() == TipoSala.SALA)
@@ -194,6 +253,11 @@ public class Sistema {
             }
         }
     }
+    /**
+     * 
+     * @param desasociar Es una clase Actividad, se refiere a la activdad que se desea desasociar
+     * @return Retorna un boolean, si es true, se elimina el bloque, y no queda asociada una actividad a la Sala o Laboratorio
+     */
      public boolean desasociarActividad (Actividad desasociar)
      {
         if (desasociar.getTipoRequerido() == TipoSala.SALA)
@@ -227,7 +291,10 @@ public class Sistema {
         
         }
     }
-    
+    /**
+     * 
+     * @return Se devuelve un ArrayList del tipo String, corresponde al listado de demandas incompletas que no tienen una sala asignada
+     */
     public String mostrarDemandasIncompletas(){
         String listadoDemandas = "";
         for(Actividad existente: this.actividades)
@@ -239,7 +306,10 @@ public class Sistema {
         }
         return listadoDemandas;
     }
-    
+    /**
+     * 
+     * @return Devuelve un listado del tipo String, con los ArrayList salas y laboratorios ordenados de forma Ascendente
+     */
     public String listarAscendente ()            
     {
         String listado = "";
@@ -258,7 +328,10 @@ public class Sistema {
         }
         return listado;
     }
-    
+    /**
+     * 
+     * @return Devuelve un listado del tipo String, con los ArrayList salas y laboratorios ordenados de forma Descendente
+     */
     public String listarDescendente ()
     {
         String listado = "";
@@ -278,7 +351,10 @@ public class Sistema {
         return listado;
         
     }
-    
+    /**
+     * 
+     * @return Devuelve los ArrayList actividades, laboratorio y salas en forma de String
+     */
     public String toSave(){
         String save = "";
         save += this.actividades.size() + "\n";

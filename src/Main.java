@@ -1,4 +1,6 @@
 
+
+
 public class Main {
 
     private static Lector donLector = new Lector();
@@ -390,7 +392,7 @@ public class Main {
         nombreRamo= donLector.leerLinea("Ingrese el nombre de la Actividad :");
         cantidadAlumnos = donLector.leerNumeroEntero("Ingrese la Cantidad de Alumnos");
         dia = donLector.leerDia("Ingrese el Dia : ");
-        bloque = donLector.leerNumeroEntero("Ingrese el Bloque: ");
+        bloque = donLector.leerBloque("Ingrese el Bloque: ");
     }
     
     private static void Remover_Actividad(){

@@ -7,8 +7,17 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 
-public class CrearExcel{
+/**
+ * @author Luis Aburto, M. Fernanda Matera, Jose F. Riffo
+ * @version 
 
+*/
+    
+public class CrearExcel{
+    /**
+     * 
+     * @return 
+     */
     static public boolean CrearExcel(){
 
         //Todo lo de aquí abajo prepara el excel a escribir -Pencho

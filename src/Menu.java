@@ -1,14 +1,16 @@
 
+/**
+ * @author Luis Aburto, M. Fernanda Matera, Jose F. Riffo
+ * @version 
+
+*/
 
 public class Menu
 {
     
    static public void mostrarMenuPrincipal()
    {
-       /*
-      el Menú Principal (Ingresar/Remover Sala, Ingresar/Remover Laboratorio, Cargar Demanda, Resolver Demanda, Volver),
-       Resolver Demanda (Ver listado de demandas cumplidas,Seleccionar actividad, Volver) y Seleccionar Actividad 
-       (Asignar sala/laboratorio, Remover sala/laboratorio asignado, Volver).*/
+ 
         System.out.println ("Menú");
         System.out.println ("\n");
         System.out.println ("1) Ingresar/Remover Sala");
