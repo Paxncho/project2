@@ -43,9 +43,9 @@ public class CreadorDeArchivos {
             cantidad = Integer.parseInt(scanner.nextLine());
             ArrayList<Ramo> ramos = new ArrayList<>();
             
-            hojaListaActividades.createRow(0).getCell(1).setCellValue("Nombre del Ramo");
-            hojaListaActividades.createRow(0).getCell(2).setCellValue("Cantidad de Alumnos");
-            hojaListaActividades.createRow(0).getCell(3).setCellValue("Tipo de Aula Requerida");
+            hojaListaActividades.createRow(0).createCell(1).setCellValue("Nombre del Ramo");
+            hojaListaActividades.getRow(0).createCell(2).setCellValue("Cantidad de Alumnos");
+            hojaListaActividades.getRow(0).createCell(3).setCellValue("Tipo de Aula Requerida");
             
             for (int i = 0; i < cantidad; i++){
                 String nombre = scanner.nextLine();
@@ -59,7 +59,7 @@ public class CreadorDeArchivos {
                     filaActiva.getCell(2).setCellValue(cantidadAlumnos);
                 }
                 
-                Row filaActiva = hojaListaActividades.createRow(ramos.indexOf(ramo) + 1);
+                Row filaActiva = hojaListaActividades.getRow(ramos.indexOf(ramo) + 1);
                 
                 String diaActividad = scanner.nextLine();
                 diaActividad = diaActividad.toUpperCase();
@@ -88,7 +88,7 @@ public class CreadorDeArchivos {
             
             ArrayList<Aula> aulas = new ArrayList<>();
             hojaListaSalasLaboratorios.createRow(0).createCell(1).setCellValue("Nombre");
-            hojaListaSalasLaboratorios.createRow(0).createCell(2).setCellValue("Capacidad de Alumnos");
+            hojaListaSalasLaboratorios.getRow(0).createCell(2).setCellValue("Capacidad de Alumnos");
             
             //Asignacion de Sala a la Lista de Salas/Laboratorios, además de la creación del horario en la Hoja Adecuada
             cantidad = Integer.parseInt(scanner.nextLine());
@@ -134,19 +134,19 @@ public class CreadorDeArchivos {
                     
                     switch (diaActividad){
                         case "LUNES":
-                            hojaHorarios.createRow(13*i + bloque).createCell(1).setCellValue(nombreActividad);
+                            hojaHorarios.getRow(13*i + bloque).createCell(1).setCellValue(nombreActividad);
                             break;
                         case "MARTES":
-                            hojaHorarios.createRow(13*i + bloque).createCell(2).setCellValue(nombreActividad);
+                            hojaHorarios.getRow(13*i + bloque).createCell(2).setCellValue(nombreActividad);
                             break;
                         case "MIERCOLES":
-                            hojaHorarios.createRow(13*i + bloque).createCell(3).setCellValue(nombreActividad);
+                            hojaHorarios.getRow(13*i + bloque).createCell(3).setCellValue(nombreActividad);
                             break;
                         case "JUEVES":
-                            hojaHorarios.createRow(13*i + bloque).createCell(4).setCellValue(nombreActividad);
+                            hojaHorarios.getRow(13*i + bloque).createCell(4).setCellValue(nombreActividad);
                             break;
                         case "VIERNES":
-                            hojaHorarios.createRow(13*i + bloque).createCell(5).setCellValue(nombreActividad);
+                            hojaHorarios.getRow(13*i + bloque).createCell(5).setCellValue(nombreActividad);
                             break;
                     }
                 }
